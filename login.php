@@ -1,12 +1,12 @@
 <?php
-session_start();
-// DB接続に必要な情報をまとめておきます
+    session_start();
+    // DB接続に必要な情報をまとめておきます
 
-use function PHPSTORM_META\sql_injection_subst;
+    use function PHPSTORM_META\sql_injection_subst;
 
-$dsn = "mysql:host=localhost;dbname=tripmemory;charset=utf8";
-$user = "testuser";
-$pass = "testpass";
+    $dsn = "mysql:host=localhost;dbname=tripmemory;charset=utf8";
+    $user = "testuser";
+    $pass = "testpass";
 
 try {
     // DBに接続します
@@ -20,7 +20,7 @@ try {
         // SQL文の用意
         $sql = <<<sql
         
-        SELECT * FROM users WHERE userid = ? AND password = ?
+        SELECT * FROM users WHERE userid = ? AND password = ? 
         
 sql;
 
@@ -32,10 +32,17 @@ sql;
 
 
         // 結果を取得
-        if ($stmt->rowCount() > 0) {
-           // echo "ログイン成功";
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        if ($result[0]["permission"] == "admin" ){
+          header('Location: admin.php');
+          exit;
+        }else if ($stmt->rowCount() > 0) {
+            // echo "ログイン成功";
             // ログイン成功時の処理をここに記術
             $_SESSION["userid"] = $userid;
+
+
             header('Location: selectMenu.html');
 
         }else{
