@@ -80,7 +80,7 @@ $content = <<< HTML
         <input type="hidden" name = "remarks" value = {$_SESSION["remarks"]}>
 
       </form>
-      <p><a href="">入力を修正する</a></p>
+      <p><a href="input.html">入力を修正する</a></p>
     
 </body>
 </html>
