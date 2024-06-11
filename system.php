@@ -58,6 +58,12 @@ sql;
       echo "エラー内容：".$e->getMessage();
     }
     
+
+    echo "登録完了";
+    echo "さらに追加";
+    echo "過去のデータを見る";
+    echo "TOPに戻る";
+
     // //リダイレクト
     // header('Location: check.php');
     // exit;
