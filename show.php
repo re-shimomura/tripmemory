@@ -33,6 +33,22 @@ sql;
         //PDO::FETCH_ASSOCパラメータは、結果を連想配列として取得するように指定している
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+            //ユーザを無効にするための処理
+        if (isset($_GET["mode"]) && $_GET["mode"] == "delete")
+        {
+            //sql文を用意
+            $sql=<<<sql
+            UPDATE material
+            SET flag = 1
+            WHERE id = ?;
+sql;
+
+            $stmt=$dbh->prepare($sql);
+            $stmt->bindParam(1,$_GET["id"]);
+            //sql実行
+            $stmt->execute();
+        }
+
         // キーワード検索処理
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : null;
         $keyword = "%".$keyword."%";
@@ -42,7 +58,6 @@ sql;
         FROM material
         WHERE userid = ? 
         AND (triptitle LIKE ? OR place LIKE ? OR spot LIKE ? OR comment LIKE ? OR remarks LIKE ?);
-
 
 sql;
 
@@ -57,10 +72,7 @@ sql;
         $stmt->execute();
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-    }
+        }
     } catch (PDOException $e) {
         // エラー処理
         echo "接続失敗: " . $e->getMessage();
@@ -89,16 +101,33 @@ sql;
             <th>スポット</th>
             <th>コメント</th>
             <th>備考</th>
+            
         </tr>
         <?php foreach ($result as $row){ ?>
-        <tr>
-            <td><?php echo $row['triptitle']; ?></td>
-            <td><?php echo $row['day']; ?></td>
-            <td><?php echo $row['place']; ?></td>
-            <td><?php echo $row['spot']; ?></td>
-            <td><?php echo $row['comment']; ?></td>
-            <td><?php echo $row['remarks']; ?></td>
-        </tr>
+            <?php if ($row["flag"] == 0){ ?>
+                <tr>
+                    <td><?php echo $row['triptitle']; ?></td>
+                    <td><?php echo $row['day']; ?></td>
+                    <td><?php echo $row['place']; ?></td>
+                    <td><?php echo $row['spot']; ?></td>
+                    <td><?php echo $row['comment']; ?></td>
+                    <td><?php echo $row['remarks']; ?></td>
+                    <td>
+                    <form action="edit.php" method="get">
+                            <input type="submit" value="編集"></input>
+                            <input type="hidden" name="mode" value="edit">
+                            <input type="hidden" name="id" value=<?php echo $row['id']; ?>>
+                        </form>
+                    </td>
+                    <td>
+                    <form action="show.php" method="get">
+                            <input type="submit" value="削除"></input>
+                            <input type="hidden" name="mode" value="delete">
+                            <input type="hidden" name="id" value=<?php echo $row['id']; ?>>
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
         <?php }?>
 
         
