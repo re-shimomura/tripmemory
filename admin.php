@@ -14,13 +14,30 @@ try {
     // エラーモードを例外に設定
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    //ユーザを無効にするための処理
+    if (isset($_GET["mode"]) && $_GET["mode"] == "delete"){
+        //sql文を用意
+        $sql=<<<sql
+        UPDATE users
+        SET flag = 1
+        WHERE userid = ?;
+sql;
+
+        $stmt=$dbh->prepare($sql);
+        $stmt->bindParam(1,$_GET["userid"]);
+        //sql実行
+        $stmt->execute();
+    }
+
+
     // データを取得するクエリ
-    $sql = "SELECT userid, password, permission FROM users";
+    $sql = "SELECT userid, password, permission, flag FROM users";
     // クエリ実行
     $stmt = $dbh->query($sql);
     // 結果を連想配列として取得
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+ 
 } catch (PDOException $e) {
     // エラー処理
     echo "接続失敗: " . $e->getMessage();
@@ -51,7 +68,14 @@ $dbh = null;
             <td><?php echo $row['userid']; ?></td>
             <td><?php echo $row['password']; ?></td>
             <td><?php echo $row['permission']; ?></td>
-
+            <td><?php echo $row['flag']; ?></td>
+            <td>        
+                <form action="admin.php" method="get">
+                    <input type="submit" value="無効"></input>
+                    <input type="hidden" name="mode" value="delete">
+                    <input type="hidden" name="userid" value=<?php echo $row['userid']; ?>>
+                </form>
+            </td>
         </tr>
         <?php } ?>
     </table>
