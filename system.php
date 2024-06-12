@@ -59,11 +59,15 @@ sql;
     }
     
 
-    echo "登録完了";
-    echo "さらに追加";
-    echo "過去のデータを見る";
-    echo "TOPに戻る";
-
+    $html = <<<EOD
+    <h2>登録が完了しました</h2>
+    <button onclick="location.href='input.html'">さらに追加</button>
+    <button onclick="location.href='show.php'">過去のデータを見る</button>
+    <button onclick="location.href='selectMenu.html'">TOPに戻る</button>
+    </body>
+    </html>
+EOD;
+     echo $html;
     // //リダイレクト
     // header('Location: check.php');
     // exit;
