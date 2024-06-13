@@ -16,7 +16,7 @@ try {
         $id = $_GET['id'];
 
         $sql = <<<sql
-        SELECT id, triptitle, day, place, spot, comment, remarks
+        SELECT id, triptitle, day, place, spot1, comment1, remarks
         FROM material
         WHERE id = ?;
 sql;
@@ -35,13 +35,13 @@ sql;
         $triptitle = $_POST['triptitle'];
         $day = $_POST['day'];
         $place = $_POST['place'];
-        $spot = $_POST['spot'];
-        $comment = $_POST['comment'];
+        $spot1 = $_POST['spot1'];
+        $comment1 = $_POST['comment1'];
         $remarks = $_POST['remarks'];
 
         $sql = <<<sql
         UPDATE material
-        SET triptitle = ?, day = ?, place = ?, spot = ?, comment = ?, remarks = ?
+        SET triptitle = ?, day = ?, place = ?, spot1 = ?, comment1 = ?, remarks = ?
         WHERE id = ?;
 sql;
 
@@ -49,8 +49,8 @@ sql;
         $stmt->bindParam(1, $triptitle);
         $stmt->bindParam(2, $day);
         $stmt->bindParam(3, $place);
-        $stmt->bindParam(4, $spot);
-        $stmt->bindParam(5, $comment);
+        $stmt->bindParam(4, $spot1);
+        $stmt->bindParam(5, $comment1);
         $stmt->bindParam(6, $remarks);
         $stmt->bindParam(7, $id);
         $stmt->execute();
@@ -86,11 +86,11 @@ sql;
         <label for="place">目的地:</label>
         <input type="text" name="place" id="place" value="<?php echo $data['place']; ?>"><br>
 
-        <label for="spot">スポット:</label>
-        <input type="text" name="spot" id="spot" value="<?php echo $data['spot']; ?>"><br>
+        <label for="spot1">スポット:</label>
+        <input type="text" name="spot1" id="spot1" value="<?php echo $data['spot1']; ?>"><br>
 
-        <label for="comment">コメント:</label>
-        <input type="text" name="comment" id="comment" value="<?php echo $data['comment']; ?>"><br>
+        <label for="comment1">コメント:</label>
+        <input type="text" name="comment1" id="comment1" value="<?php echo $data['comment1']; ?>"><br>
 
         <label for="remarks">備考:</label>
         <input type="text" name="remarks" id="remarks" value="<?php echo $data['remarks']; ?>"><br>
