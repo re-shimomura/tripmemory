@@ -5,15 +5,15 @@ if(isset($_POST["triptitle"])) {
     $triptitle = $_POST["triptitle"];   
     $day = $_POST["day"];
     $place = $_POST["place"];
-    $spot = $_POST["spot"];
-    $comment = $_POST["comment"];
+    $spot1 = $_POST["spot1"];
+    $comment1 = $_POST["comment1"];
     $remarks = $_POST["remarks"];
 
     $_SESSION["triptitle"] = $triptitle;
     $_SESSION["day"] = $day;
     $_SESSION["place"] = $place;
-    $_SESSION["spot"] = $spot;
-    $_SESSION["comment"] = $comment;
+    $_SESSION["spot1"] = $spot1;
+    $_SESSION["comment1"] = $comment1;
     $_SESSION["remarks"] = $remarks;
 }
 
@@ -52,14 +52,14 @@ $content = <<< HTML
       
       <p>
         ■スポット<br>
-        {$_SESSION["spot"]}
+        {$_SESSION["spot1"]}
       </p>
 
       <hr color="#ff8c00" width="300px" align="left">
       
       <p>
         ■コメント<br>
-        {$_SESSION["comment"]}
+        {$_SESSION["comment1"]}
       </p>
 
       <hr color="#ff8c00" width="300px" align="left">
@@ -75,8 +75,8 @@ $content = <<< HTML
         <input type="hidden" name = "triptitle" value = {$_SESSION["triptitle"]}>
         <input type="hidden" name = "day" value = {$_SESSION["day"]}>
         <input type="hidden" name = "place" value = {$_SESSION["place"]}>
-        <input type="hidden" name = "spot" value = {$_SESSION["spot"]}>
-        <input type="hidden" name = "comment" value = {$_SESSION["comment"]}>
+        <input type="hidden" name = "spot1" value = {$_SESSION["spot1"]}>
+        <input type="hidden" name = "comment1" value = {$_SESSION["comment1"]}>
         <input type="hidden" name = "remarks" value = {$_SESSION["remarks"]}>
 
       </form>
