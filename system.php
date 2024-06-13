@@ -10,8 +10,8 @@ session_start();
     $triptitle = $_POST["triptitle"];   
     $day = $_POST["day"];
     $place = $_POST["place"];
-    $spot = $_POST["spot"];
-    $comment = $_POST["comment"];
+    $spot1 = $_POST["spot1"];
+    $comment1 = $_POST["comment1"];
     $remarks = $_POST["remarks"];
     $remarks = $_POST["remarks"];
     $userid = $_SESSION["userid"];
@@ -25,8 +25,8 @@ session_start();
     //   $_SESSION["triptitle"] = $triptitle;
     //   $_SESSION["day"] = $day;
     //   $_SESSION["place"] = $place;
-    //   $_SESSION["spot"] = $spot;
-    //   $_SESSION["comment"] = $comment;
+    //   $_SESSION["spot1"] = $spot1;
+    //   $_SESSION["comment1"] = $comment1;
     //   $_SESSION["remarks"] = $remarks;
   
       
@@ -37,7 +37,7 @@ session_start();
       //sql文の用意。ヒアドキュメント
       $sql=<<<sql
       
-      INSERT INTO material (triptitle, day, place, spot, comment, remarks,userid)
+      INSERT INTO material (triptitle, day, place, spot1, comment1, remarks,userid)
       VALUES (?,?,?,?,?,?,?);
 sql;
       //前に空白あけない
@@ -47,8 +47,8 @@ sql;
       $stmt -> bindParam(1,$triptitle);   //プレイスホルダー（値が未確定だったところに値を紐づける）
       $stmt -> bindParam(2,$day);
       $stmt -> bindParam(3,$place);
-      $stmt -> bindParam(4,$spot);
-      $stmt -> bindParam(5,$comment);
+      $stmt -> bindParam(4,$spot1);
+      $stmt -> bindParam(5,$comment1);
       $stmt -> bindParam(6,$remarks);
       $stmt -> bindParam(7,$userid);
       $stmt -> execute(); //保留していたSQLを実行
