@@ -6,7 +6,12 @@ $user = "testuser";
 $pass = "testpass";
 // フォームから送信されたデータを受け取る処理
 
-
+    // // セッションにuseridが設定されているか確認 
+    // if (!isset($_SESSION["userid"])) {
+    //     // useridが設定されていない場合、ログインページにリダイレクトするか、エラーメッセージを表示する
+    //     echo "ユーザーがログインしていません。ログインしてください。";
+    //     exit;
+    // }
     $userid = $_SESSION["userid"];
 
     try {
@@ -18,7 +23,7 @@ $pass = "testpass";
 
         // データを取得するクエリ
         $sql=<<<sql
-        SELECT triptitle, day, place, spot, comment, remarks FROM material WHERE userid = ?;
+        SELECT triptitle, day, place, spot1, comment1, remarks FROM material WHERE userid = ?;
 
 sql;
         // プレイスホルダー
@@ -57,7 +62,7 @@ sql;
         SELECT *
         FROM material
         WHERE userid = ? 
-        AND (triptitle LIKE ? OR place LIKE ? OR spot LIKE ? OR comment LIKE ? OR remarks LIKE ?);
+        AND (triptitle LIKE ? OR place LIKE ? OR spot1 LIKE ? OR comment1 LIKE ? OR remarks LIKE ?);
 
 sql;
 
@@ -93,6 +98,11 @@ sql;
 </head>
 <body>
     <h2>登録データ一覧</h2>
+    <form method="GET" action="show.php">
+        <label for="keyword">キーワード検索:</label>
+        <input type="text" name="keyword" id="keyword">
+        <button type="submit">検索</button>
+    </form>
     <table border="1">
         <tr>
             <th>旅のタイトル</th>
@@ -109,8 +119,8 @@ sql;
                     <td><?php echo $row['triptitle']; ?></td>
                     <td><?php echo $row['day']; ?></td>
                     <td><?php echo $row['place']; ?></td>
-                    <td><?php echo $row['spot']; ?></td>
-                    <td><?php echo $row['comment']; ?></td>
+                    <td><?php echo $row['spot1']; ?></td>
+                    <td><?php echo $row['comment1']; ?></td>
                     <td><?php echo $row['remarks']; ?></td>
                     <td>
                     <form action="edit.php" method="get">
@@ -134,11 +144,7 @@ sql;
     </table>
     <p><a href="selectMenu.html">TOPに戻る</a></p>
 
-    <form method="GET" action="show.php">
-        <label for="keyword">キーワード検索:</label>
-        <input type="text" name="keyword" id="keyword">
-        <button type="submit">検索</button>
-    </form>
+
 
 </body>
 </html>
