@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+   
     <title>情報入力画面</title>
 </head>
 <body>
@@ -65,19 +68,80 @@
             <option value="宮崎県">宮崎県</option>
             <option value="鹿児島県">鹿児島県</option>
             <option value="沖縄県">沖縄県</option>
-            </select><br>
+          </select><br>
 
-          <!-- <label>スポット</label>
-          <input id="" type="text" name="spot" placeholder="串カツ田中"><br>
+          <section id="spot_list">
+            <label>スポット1</label>
+            <input id="" type="text" name="spot1" placeholder="串カツ田中"><br>
+            <label>コメント</label>
+            <textarea name="comment1" placeholder="10本食べた。アスパラが美味しかった。"></textarea><br>
+          </section>
+
+          <p id="add_form" class="eventbutton"><span class="material-symbols-outlined">add_circle</span></p> 
+         
+
+          <label>スポット2</label>
+          <input id="" type="text" name="spot2" placeholder="スポット２"><br>
           <label>コメント</label>
-          <textarea name="comment" placeholder="10本食べた。アスパラが美味しかった。"></textarea><br>
+          <textarea name="comment2" placeholder="スポット２"></textarea><br>
+
+          <label>スポット3</label>
+          <input id="" type="text" name="spot3" placeholder="スポット３"><br>
+          <label>コメント</label>
+          <textarea name="comment3" placeholder="スポット３"></textarea><br>
+
+          <label>スポット4</label>
+          <input id="" type="text" name="spot4" placeholder="スポット４"><br>
+          <label>コメント</label>
+          <textarea name="comment4" placeholder="スポット４"></textarea><br>
+
+          <label>スポット5</label>
+          <input id="" type="text" name="spot5" placeholder="スポット５"><br>
+          <label>コメント</label>
+          <textarea name="comment5" placeholder="スポット５"></textarea><br>
 
           <label>備考</label>
-          <input id="" type="trxtarea" name="remarks" placeholder="全体の旅費は２万円"><br> -->
+          <input id="" type="trxtarea" name="remarks" placeholder="全体の旅費は２万円"><br>
 
           <button type="submit" name="submit">登録する</button>
           <button type="button" onclick="location.href='selectMenu.html'">TOPに戻る</button>
         </form>
       
+        <script>
+          var count = 2;
+          document.getElementById("add_form").addEventListener("click",function(){
+            // この条件を見たしたら以下の条件を行う
+            if(count<6){
+              // <input id="" type="text" name="spot2" placeholder="スポット２"><br>
+              const spotPlace = document.getElementById("spot_list");
+              const newBr = document.createElement('br');
+              spotPlace.appendChild(newBr);
+              const newLabel = document.createElement('label');
+              newLabel.textContent = "スポット"+count;
+              spotPlace.appendChild(newLabel);
+              spotPlace.appendChild(newBr);
+              const newInput = document.createElement('input');
+              newInput.type = "text";
+              newInput.name = "spot"+count;
+              newInput.placeholder = "スポット"+count;
+              spotPlace.appendChild(newInput);
+
+
+              // const newForm = document.createElement('input');
+              // newForm.type = 'text';
+
+              // const newLabel = document.createElement('label');
+              // newLabel.textContent = '連絡事項：';
+
+              // newLabel.appendChild(newForm);
+
+              // this.appendChild(newLabel);
+            
+              count++;
+            }
+            console.log("ngo");
+          });
+        </script>
+
 </body>
 </html>
