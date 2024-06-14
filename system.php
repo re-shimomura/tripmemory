@@ -30,7 +30,8 @@ session_start();
     //   $_SESSION["remarks"] = $remarks;
   
       
-      
+
+    
       //DBに接続します
       try{
       $dbh=new PDO($dsn,$user,$pass);
