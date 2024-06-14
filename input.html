@@ -72,33 +72,12 @@
 
           <section id="spot_list">
             <label>スポット1</label>
-            <input id="" type="text" name="spot1" placeholder="串カツ田中"><br>
+            <input id="" type="text" name="spot[]" placeholder="串カツ田中"><br>
             <label>コメント</label>
-            <textarea name="comment1" placeholder="10本食べた。アスパラが美味しかった。"></textarea><br>
+            <textarea name="comment[]" placeholder="10本食べた。アスパラが美味しかった。"></textarea><br>
           </section>
 
           <p id="add_form" class="eventbutton"><span class="material-symbols-outlined">add_circle</span></p> 
-         
-
-          <label>スポット2</label>
-          <input id="" type="text" name="spot2" placeholder="スポット２"><br>
-          <label>コメント</label>
-          <textarea name="comment2" placeholder="スポット２"></textarea><br>
-
-          <label>スポット3</label>
-          <input id="" type="text" name="spot3" placeholder="スポット３"><br>
-          <label>コメント</label>
-          <textarea name="comment3" placeholder="スポット３"></textarea><br>
-
-          <label>スポット4</label>
-          <input id="" type="text" name="spot4" placeholder="スポット４"><br>
-          <label>コメント</label>
-          <textarea name="comment4" placeholder="スポット４"></textarea><br>
-
-          <label>スポット5</label>
-          <input id="" type="text" name="spot5" placeholder="スポット５"><br>
-          <label>コメント</label>
-          <textarea name="comment5" placeholder="スポット５"></textarea><br>
 
           <label>備考</label>
           <input id="" type="trxtarea" name="remarks" placeholder="全体の旅費は２万円"><br>
@@ -108,39 +87,51 @@
         </form>
       
         <script>
-          var count = 2;
-          document.getElementById("add_form").addEventListener("click",function(){
-            // この条件を見たしたら以下の条件を行う
-            if(count<6){
-              // <input id="" type="text" name="spot2" placeholder="スポット２"><br>
-              const spotPlace = document.getElementById("spot_list");
-              const newBr = document.createElement('br');
-              spotPlace.appendChild(newBr);
-              const newLabel = document.createElement('label');
-              newLabel.textContent = "スポット"+count;
-              spotPlace.appendChild(newLabel);
-              spotPlace.appendChild(newBr);
-              const newInput = document.createElement('input');
-              newInput.type = "text";
-              newInput.name = "spot"+count;
-              newInput.placeholder = "スポット"+count;
-              spotPlace.appendChild(newInput);
+        var count = 2;
+         document.getElementById("add_form").addEventListener("click", function () {
+        // この条件を満たした場合、以下の処理を実行する
+        if (count < 6) {
+            // スポットの入力フォームを追加するセクションを入手
+            const spotPlace = document.getElementById("spot_list");
 
+            // スポットラベルを追加、countで5まで
+            const spotLabel = document.createElement('label');
+            spotLabel.textContent = "スポット" + count;
+            spotPlace.appendChild(spotLabel);
 
-              // const newForm = document.createElement('input');
-              // newForm.type = 'text';
+            // スポットの入力フォームを追加
+            const newInputSpot = document.createElement('input');
+            newInputSpot.type = "text";
+            newInputSpot.name = "spot[]";
+            newInputSpot.placeholder = "スポット" + count;
+            spotPlace.appendChild(newInputSpot);
 
-              // const newLabel = document.createElement('label');
-              // newLabel.textContent = '連絡事項：';
+            // スポットとコメントの間に改行を追加
+            const newBr = document.createElement('br');
+            spotPlace.appendChild(newBr);
 
-              // newLabel.appendChild(newForm);
+            // コメントラベルを追加
+            const commentLabel = document.createElement('label');
+            commentLabel.textContent = "コメント";
+            spotPlace.appendChild(commentLabel);
 
-              // this.appendChild(newLabel);
-            
-              count++;
-            }
-            console.log("ngo");
-          });
+            // コメントの入力フォームを追加
+            const newInputComment = document.createElement('textarea');
+            newInputComment.name = "comment[]";
+            newInputComment.placeholder = "コメント" + count;
+            spotPlace.appendChild(newInputComment);
+
+            // スポットとコメントの間に改行を追加
+            spotPlace.appendChild(document.createElement('br'));
+
+            count++;
+           
+        } else {
+            alert("登録できるのは5つまでです");
+        }
+    });
+
+    
         </script>
 
 </body>
