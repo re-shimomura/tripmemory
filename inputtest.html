@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+   
+    <title>情報入力画面</title>
+
+    <style>
+        .spot-comment-set {
+    margin-bottom: 20px; /* セット間の余白を設定 */
+}
+
+    </style>
+</head>
+<body>
+    <h1>情報入力画面</h1>
+    
+        <form action="check.php" method="post">
+          <label>旅のタイトル</label>
+          <input id="" type="text" name="triptitle" placeholder="大阪USJ旅行"><br>
+
+          <label>旅行日</label>
+          <input id="" type="date" name="day" ><br>
+
+          <label>目的地</label>
+          <select name="place">
+            <option value="">選択してください</option>
+            <option value="北海道">北海道</option>
+            <option value="青森県">青森県</option>
+            <option value="岩手県">岩手県</option>
+            <option value="宮城県">宮城県</option>
+            <option value="秋田県">秋田県</option>
+            <option value="山形県">山形県</option>
+            <option value="福島県">福島県</option>
+            <option value="茨城県">茨城県</option>
+            <option value="栃木県">栃木県</option>
+            <option value="群馬県">群馬県</option>
+            <option value="埼玉県">埼玉県</option>
+            <option value="千葉県">千葉県</option>
+            <option value="東京都" >東京都</option>
+            <option value="神奈川県">神奈川県</option>
+            <option value="新潟県">新潟県</option>
+            <option value="富山県">富山県</option>
+            <option value="石川県">石川県</option>
+            <option value="福井県">福井県</option>
+            <option value="山梨県">山梨県</option>
+            <option value="長野県">長野県</option>
+            <option value="岐阜県">岐阜県</option>
+            <option value="静岡県">静岡県</option>
+            <option value="愛知県">愛知県</option>
+            <option value="三重県">三重県</option>
+            <option value="滋賀県">滋賀県</option>
+            <option value="京都府">京都府</option>
+            <option value="大阪府">大阪府</option>
+            <option value="兵庫県">兵庫県</option>
+            <option value="奈良県">奈良県</option>
+            <option value="和歌山県">和歌山県</option>
+            <option value="鳥取県">鳥取県</option>
+            <option value="島根県">島根県</option>
+            <option value="岡山県">岡山県</option>
+            <option value="広島県">広島県</option>
+            <option value="山口県">山口県</option>
+            <option value="徳島県">徳島県</option>
+            <option value="香川県">香川県</option>
+            <option value="愛媛県">愛媛県</option>
+            <option value="高知県">高知県</option>
+            <option value="福岡県">福岡県</option>
+            <option value="佐賀県">佐賀県</option>
+            <option value="長崎県">長崎県</option>
+            <option value="熊本県">熊本県</option>
+            <option value="大分県">大分県</option>
+            <option value="宮崎県">宮崎県</option>
+            <option value="鹿児島県">鹿児島県</option>
+            <option value="沖縄県">沖縄県</option>
+          </select><br>
+
+          <section id="spot_list">
+            <label>スポット1</label>
+            <input id="" type="text" name="spot1" placeholder="串カツ田中"><br>
+            <label id = "comment_list">コメント</label>
+            <textarea name="comment1" placeholder="10本食べた。アスパラが美味しかった。"></textarea><br>
+          </section>
+
+          <p id="add_form" class="eventbutton"><span class="material-symbols-outlined">add_circle</span></p> 
+         
+
+          <!-- <label>スポット2</label>
+          <input id="" type="text" name="spot2" placeholder="スポット２"><br>
+          <label>コメント</label>
+          <textarea name="comment2" placeholder="スポット２"></textarea><br>
+
+          <label>スポット3</label>
+          <input id="" type="text" name="spot3" placeholder="スポット３"><br>
+          <label>コメント</label>
+          <textarea name="comment3" placeholder="スポット３"></textarea><br>
+
+          <label>スポット4</label>
+          <input id="" type="text" name="spot4" placeholder="スポット４"><br>
+          <label>コメント</label>
+          <textarea name="comment4" placeholder="スポット４"></textarea><br>
+
+          <label>スポット5</label>
+          <input id="" type="text" name="spot5" placeholder="スポット５"><br>
+          <label>コメント</label>
+          <textarea name="comment5" placeholder="スポット５"></textarea><br> -->
+
+          <label>備考</label>
+          <input id="" type="trxtarea" name="remarks" placeholder="全体の旅費は２万円"><br>
+
+          <button type="submit" name="submit">登録する</button>
+          <button type="button" onclick="location.href='selectMenu.html'">TOPに戻る</button>
+        </form>
+      
+        <script>
+            // var count = 2;
+            // document.getElementById("add_form").addEventListener("click", function () {
+            //   // この条件を見たしたら以下の条件を行う
+            //   if (count < 6) {
+            // // スポットの入力フォームを追加
+            // const spotPlace = document.getElementById("spot_list");
+            // const newBrSpot = document.createElement('br');
+            // spotPlace.appendChild(newBrSpot);
+            // const newLabelSpot = document.createElement('label');
+            // newLabelSpot.textContent = "スポット" + count;
+            // spotPlace.appendChild(newLabelSpot);
+            // spotPlace.appendChild(newBrSpot);
+            // const newInputSpot = document.createElement('input');
+            // newInputSpot.type = "text";
+            // newInputSpot.name = "spot" + count;
+            // newInputSpot.placeholder = "スポット" + count;
+            // spotPlace.appendChild(newInputSpot);
+
+            // // コメントの入力フォームを追加
+            // const commentPlace = document.getElementById("comment_list");
+            // const newBrComment = document.createElement('br');
+            // commentPlace.appendChild(newBrComment);
+            // const newLabelComment = document.createElement('label');
+            // newLabelComment.textContent = "コメント" + count;
+            // commentPlace.appendChild(newLabelComment);
+            // commentPlace.appendChild(newBrComment);
+            // const newInputComment = document.createElement('textarea'); // <textarea> を作成する
+            // newInputComment.name = "comment" + count;
+            // newInputComment.placeholder = "コメント" + count;
+            // commentPlace.appendChild(newInputComment);
+
+            // count++;
+                // const newBrComment = document.createElement('br');
+                // spotPlace.appendChild(newBrComment);
+                // const newLabelComment = document.createElement('label');
+                // newLabelComment.textContent = "コメント"+ count;
+                // spotPlace.appendChild(newLabelComment);
+                // spotPlace.appendChild(newBrComment);
+                // const newTextArea = document.createElement('textarea');
+                // newInputSpot.type = "text";
+                // newTextArea.name = "comment" + count;
+                // newTextArea.placeholder = "コメント"+ count;
+                // spotPlace.appendChild(newTextArea);
+          
+                
+            //   }
+            //   console.log("ngo");
+            // });
+
+            
+           
+    var count = 2;
+    document.getElementById("add_form").addEventListener("click", function () {
+        // この条件を満たした場合、以下の処理を実行する
+        if (count < 6) {
+            // スポットの入力フォームを追加
+            const spotPlace = document.getElementById("spot_list");
+
+            // スポットラベルを追加
+            const spotLabel = document.createElement('label');
+            spotLabel.textContent = "スポット" + count;
+            spotPlace.appendChild(spotLabel);
+
+            // スポットの入力フォームを追加
+            const newInputSpot = document.createElement('input');
+            newInputSpot.type = "text";
+            newInputSpot.name = "spot" + count;
+            newInputSpot.placeholder = "スポット" + count;
+            spotPlace.appendChild(newInputSpot);
+
+            // スポットとコメントの間に改行を追加
+            const newBr = document.createElement('br');
+            spotPlace.appendChild(newBr);
+
+            // コメントラベルを追加
+            const commentLabel = document.createElement('label');
+            commentLabel.textContent = "コメント";
+            spotPlace.appendChild(commentLabel);
+
+            // コメントの入力フォームを追加
+            const newInputComment = document.createElement('textarea');
+            newInputComment.name = "comment" + count;
+            newInputComment.placeholder = "コメント" + count;
+            spotPlace.appendChild(newInputComment);
+
+            // スポットとコメントの間に改行を追加
+            spotPlace.appendChild(document.createElement('br'));
+
+            count++;
+        }
+    });
+
+    // var count = 2;
+    //       document.getElementById("add_form").addEventListener("click",function(){
+    //         // この条件を見たしたら以下の条件を行う
+    //         if(count<6){
+    //           // <input id="" type="text" name="spot2" placeholder="スポット２"><br>
+    //           const spotPlace = document.getElementById("spot_list");
+    //           const newBr = document.createElement('br');
+    //           spotPlace.appendChild(newBr);
+    //           const newLabel = document.createElement('label');
+    //           newLabel.textContent = "スポット"+count;
+    //           spotPlace.appendChild(newLabel);
+    //           spotPlace.appendChild(newBr);
+    //           const newInput = document.createElement('input');
+    //           newInput.type = "text";
+    //           newInput.name = "spot"+count;
+    //           newInput.placeholder = "スポット"+count;
+    //           spotPlace.appendChild(newInput);
+            
+    //           count++;
+    //         }
+    //         console.log("ngo");
+    //       });
+</script>
+
+
+          
+          
+
+</body>
+</html>
