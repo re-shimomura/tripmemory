@@ -127,34 +127,71 @@ sql;
     </style>
 </head>
 <body>
+    <form method="GET" action="showlist.php">
+        <label for="keyword">キーワード検索:</label>
+        <input type="text" name="keyword" id="keyword">
+        <button type="submit">検索</button>
+    </form>
     <?php foreach ($result as $row): ?>
     <div>
         <h3>旅行タイトル</h3>
-        <p class="eventbutton"><?php echo $row['triptitle']; ?> <?php echo $row['place']; ?><span  class="material-symbols-outlined">expand_circle_down</span></p> 
+        <p class="eventbutton"><?php echo $row['triptitle']; ?> <?php echo $row['place']; ?><span class="material-symbols-outlined">expand_circle_down</span></p> 
 
         <dl>
-            <dt>スポット1</dt>
-            <dd><?php echo $row['spot1']; ?></dd>
-            <dd><?php echo $row['comment1']; ?></dd>
+            <?php if (!empty($row['spot1'])): ?>
+                <dt>スポット1</dt>
+                <dd><?php echo $row['spot1']; ?></dd>
+            <?php endif; ?>
 
-            <dt>スポット2</dt>
-            <dd><?php echo $row['spot2']; ?></dd>
-            <dd><?php echo $row['comment2']; ?></dd>
+            <?php if (!empty($row['comment1'])): ?>
+                <dt>コメント1</dt>
+                <dd><?php echo $row['comment1']; ?></dd>
+            <?php endif; ?>
 
-            <dt>スポット3</dt>
-            <dd><?php echo $row['spot3']; ?></dd>
-            <dd><?php echo $row['comment3']; ?></dd>
+            <?php if (!empty($row['spot2'])): ?>
+                <dt>スポット2</dt>
+                <dd><?php echo $row['spot2']; ?></dd>
+            <?php endif; ?>
 
-            <dt>スポット4</dt>
-            <dd><?php echo $row['spot4']; ?></dd>
-            <dd><?php echo $row['comment4']; ?></dd>
+            <?php if (!empty($row['comment2'])): ?>
+                <dt>コメント2</dt>
+                <dd><?php echo $row['comment2']; ?></dd>
+            <?php endif; ?>
 
-            <dt>スポット5</dt>
-            <dd><?php echo $row['spot5']; ?></dd>
-            <dd><?php echo $row['comment5']; ?></dd>
+            <?php if (!empty($row['spot3'])): ?>
+                <dt>スポット3</dt>
+                <dd><?php echo $row['spot3']; ?></dd>
+            <?php endif; ?>
 
-            <dt>備考</dt>
-            <dd><?php echo $row['remarks']; ?></dd>
+            <?php if (!empty($row['comment3'])): ?>
+                <dt>コメント3</dt>
+                <dd><?php echo $row['comment3']; ?></dd>
+            <?php endif; ?>
+
+            <?php if (!empty($row['spot4'])): ?>
+                <dt>スポット4</dt>
+                <dd><?php echo $row['spot4']; ?></dd>
+            <?php endif; ?>
+
+            <?php if (!empty($row['comment4'])): ?>
+                <dt>コメント4</dt>
+                <dd><?php echo $row['comment4']; ?></dd>
+            <?php endif; ?>
+
+            <?php if (!empty($row['spot5'])): ?>
+                <dt>スポット5</dt>
+                <dd><?php echo $row['spot5']; ?></dd>
+            <?php endif; ?>
+
+            <?php if (!empty($row['comment5'])): ?>
+                <dt>コメント5</dt>
+                <dd><?php echo $row['comment5']; ?></dd>
+            <?php endif; ?>
+
+            <?php if (!empty($row['remarks'])): ?>
+                <dt>備考</dt>
+                <dd><?php echo $row['remarks']; ?></dd>
+            <?php endif; ?>
         </dl>
     </div>
     <?php endforeach; ?>
@@ -169,8 +206,12 @@ sql;
                 } else {
                     dl.style.display = 'none';
                 }
+                //ボタンのデザインの変更をここにかく
+                this.innerHTML = '<span class="material-symbols-outlined">expand_circle_up</span>';
             });
         });
     </script>
 </body>
 </html>
+
+<span class="material-symbols-outlined">expand_circle_up</span>

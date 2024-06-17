@@ -2,10 +2,10 @@
   session_start();
   // フォームから送信されたデータを受け取る処理
   if(isset($_POST["triptitle"])) {
-      $triptitle = $_POST["triptitle"];   
-      $day = $_POST["day"];
-      $place = $_POST["place"];
-      $remarks = $_POST["remarks"];
+    $triptitle = $_POST["triptitle"];   
+    $day = $_POST["day"];
+    $place = $_POST["place"];
+    $remarks = $_POST["remarks"];
 
     // スポットとコメントの配列を初期化
     $spot = [];
@@ -36,79 +36,61 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>確認画面</title>
+      <link rel="stylesheet" href="check.css"> 
   </head>
   <body>
-  
-      <h2>入力内容の確認</h2>
-        <p>
-          ■旅のタイトル<br>
-          {$_SESSION["triptitle"]}
-        </p>
+  <section class="contr">
+      <h2 class="head">入力内容の確認</h2>
 
-        <hr color="#ff8c00" width="300px" align="left">
-        
-        <p>
-          ■日付<br>
-          {$_SESSION["day"]}
-        </p>
+      <p class="inputindex">旅のタイトル</p>
+      <p class="input">{$_SESSION["triptitle"]}</p>
+      
+      <p class="inputindex">日付</p>
+      <p class="input">{$_SESSION["day"]}</p>
 
-        <hr color="#ff8c00" width="300px" align="left">
-        
-        <p>
-          ■目的地<br>
-          {$_SESSION["place"]}
-        </p>
+      <p class="inputindex">目的地</p>
+      <p class="input">{$_SESSION["place"]}</p>
 
-        <p>
-          ■スポット1<br>
-          {$_SESSION["spot"][0]}
-        </p>
+      <p class="inputindex">スポット1</p>
+      <p class="input">{$_SESSION["spot"][0]}</p>
 
-        <p>
-          ■コメント<br>
-          {$_SESSION["comment"][0]}
-        </p>
+      <p class="inputindex">コメント</p>
+      <p class="input">{$_SESSION["comment"][0]}</p>
+  </section>    
 HTML;
 
   // スポットとコメントの数だけループして表示
-  for ($i = 0; $i < count($_SESSION["spot"]); $i++) {
+  for ($i = 1; $i < count($_SESSION["spot"]); $i++) {
       $spotNum = $i + 1;
       $content .= <<< HTML
-        <hr color="#ff8c00" width="300px" align="left">
-        <p>
-          ■スポット{$spotNum}<br>
-          {$_SESSION["spot"][$i]}
-        </p>
-
-        <hr color="#ff8c00" width="300px" align="left">
+   <section class="contr">
+        <p class="inputindex">スポット{$spotNum}</p><br>
+        <p class="input">{$_SESSION["spot"][$i]}</p>
         
-        <p>
-          ■コメント{$spotNum}<br>
-          {$_SESSION["comment"][$i]}
-        </p>
+        <p class="inputindex">コメント{$spotNum}</p><br>
+        <p class="input">{$_SESSION["comment"][$i]}</p>
+  </section>
 HTML;
   }
 
   $content .= <<< HTML
-        <hr color="#ff8c00" width="300px" align="left">
-        
-        <p>
-          ■備考<br>
-          {$_SESSION["remarks"]}
-        </p>
+    <section class="contr">
+        <p class="inputindex">備考</p><br>
+        <p class="input">{$_SESSION["remarks"]}</p>
 
         <p>入力内容に間違いがなければ、送信ボタンを押してください。</p>
         <form action="system.php" method="post">
-          <input type="submit" name="submit" value="送信">
+          <input class="button" type="submit" name="submit" value="送信">
           <!-- hiddenのデータを送信する -->
           <input type="hidden" name="triptitle" value="{$_SESSION["triptitle"]}">
           <input type="hidden" name="day" value="{$_SESSION["day"]}">
           <input type="hidden" name="place" value="{$_SESSION["place"]}">
           <input type="hidden" name="remarks" value="{$_SESSION["remarks"]}">
+    </section>
 HTML;
 
   // スポットとコメントの数だけhiddenを追加
-  for ($i = 0; $i < count($_SESSION["spot"]); $i++) {
+  for ($i = 1; $i < count($_SESSION["spot"]); $i++) {
       $content .= <<< HTML
           <input type="hidden" name="spot[]" value="{$_SESSION["spot"][$i]}">
           <input type="hidden" name="comment[]" value="{$_SESSION["comment"][$i]}">
@@ -116,11 +98,13 @@ HTML;
   }
 
   $content .= <<< HTML
+    <section class="contr">
         </form>
         <p><a href="input.html">入力を修正する</a></p>
       
   </body>
   </html>
+    </section>
 HTML;
 
   echo $content;

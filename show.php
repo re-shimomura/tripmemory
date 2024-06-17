@@ -98,18 +98,22 @@ sql;
 </head>
 <body>
     <h2>登録データ一覧</h2>
-    <form method="GET" action="show.php">
-        <label for="keyword">キーワード検索:</label>
-        <input type="text" name="keyword" id="keyword">
-        <button type="submit">検索</button>
-    </form>
+ 
     <table border="1">
         <tr>
             <th>旅のタイトル</th>
             <th>日付</th>
             <th>目的地</th>
-            <th>スポット</th>
-            <th>コメント</th>
+            <th>スポット1</th>
+            <th>コメント1</th>
+            <th>スポット2</th>
+            <th>コメント2</th>
+            <th>スポット3</th>
+            <th>コメント3</th>
+            <th>スポット4</th>
+            <th>コメント4</th>
+            <th>スポット5</th>
+            <th>コメント5</th>
             <th>備考</th>
             
         </tr>
@@ -121,6 +125,14 @@ sql;
                     <td><?php echo $row['place']; ?></td>
                     <td><?php echo $row['spot1']; ?></td>
                     <td><?php echo $row['comment1']; ?></td>
+                    <td><?php echo $row['spot2']; ?></td>
+                    <td><?php echo $row['comment2']; ?></td>
+                    <td><?php echo $row['spot3']; ?></td>
+                    <td><?php echo $row['comment3']; ?></td>
+                    <td><?php echo $row['spot4']; ?></td>
+                    <td><?php echo $row['comment4']; ?></td>
+                    <td><?php echo $row['spot5']; ?></td>
+                    <td><?php echo $row['comment5']; ?></td>
                     <td><?php echo $row['remarks']; ?></td>
                     <td>
                     <form action="edit.php" method="get">

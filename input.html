@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-   
+    <link rel="stylesheet" href="input.css"> 
     <title>情報入力画面</title>
 </head>
 <body>
-    <h1>情報入力画面</h1>
+  <section class="contr">
+    <h2 class="head">情報入力画面</h2>
     
         <form action="check.php" method="post">
-          <label>旅のタイトル</label>
+          <label>旅のタイトル</label><br>
           <input id="" type="text" name="triptitle" placeholder="大阪USJ旅行"><br>
 
-          <label>旅行日</label>
-          <input id="" type="date" name="day" ><br>
+          <label>旅行日</label><br>
+          <input class="day" type="date" name="day" ><br>
 
-          <label>目的地</label>
+          <label>目的地</label><br>
           <select name="place">
             <option value="">選択してください</option>
             <option value="北海道">北海道</option>
@@ -71,21 +72,22 @@
           </select><br>
 
           <section id="spot_list">
-            <label>スポット1</label>
+            <label>スポット1</label><br>
             <input id="" type="text" name="spot[]" placeholder="串カツ田中"><br>
-            <label>コメント</label>
-            <textarea name="comment[]" placeholder="10本食べた。アスパラが美味しかった。"></textarea><br>
+            <label>コメント</label><br>
+            <textarea name="comment[]" placeholder="10本食べた。アスパラが美味しかった。"></textarea>
           </section>
 
           <p id="add_form" class="eventbutton"><span class="material-symbols-outlined">add_circle</span></p> 
 
-          <label>備考</label>
+          <label>備考</label><br>
           <input id="" type="trxtarea" name="remarks" placeholder="全体の旅費は２万円"><br>
 
           <button type="submit" name="submit">登録する</button>
           <button type="button" onclick="location.href='selectMenu.html'">TOPに戻る</button>
         </form>
-      
+      </section>
+
         <script>
         var count = 2;
          document.getElementById("add_form").addEventListener("click", function () {
@@ -93,10 +95,15 @@
         if (count < 6) {
             // スポットの入力フォームを追加するセクションを入手
             const spotPlace = document.getElementById("spot_list");
+            
+            // スポットとコメントの間に改行を追加
+            const newBr = document.createElement('br');
+            spotPlace.appendChild(newBr);
 
             // スポットラベルを追加、countで5まで
             const spotLabel = document.createElement('label');
             spotLabel.textContent = "スポット" + count;
+            spotPlace.appendChild(document.createElement('br'));
             spotPlace.appendChild(spotLabel);
 
             // スポットの入力フォームを追加
@@ -104,21 +111,21 @@
             newInputSpot.type = "text";
             newInputSpot.name = "spot[]";
             newInputSpot.placeholder = "スポット" + count;
+            spotPlace.appendChild(document.createElement('br'));
             spotPlace.appendChild(newInputSpot);
 
-            // スポットとコメントの間に改行を追加
-            const newBr = document.createElement('br');
-            spotPlace.appendChild(newBr);
 
             // コメントラベルを追加
             const commentLabel = document.createElement('label');
             commentLabel.textContent = "コメント";
+            spotPlace.appendChild(document.createElement('br'));
             spotPlace.appendChild(commentLabel);
 
             // コメントの入力フォームを追加
             const newInputComment = document.createElement('textarea');
             newInputComment.name = "comment[]";
             newInputComment.placeholder = "コメント" + count;
+            spotPlace.appendChild(document.createElement('br'));
             spotPlace.appendChild(newInputComment);
 
             // スポットとコメントの間に改行を追加
