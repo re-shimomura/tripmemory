@@ -6,7 +6,7 @@ $user = "testuser";
 $pass = "testpass";
 // フォームから送信されたデータを受け取る処理
 
-    // // セッションにuseridが設定されているか確認 
+    // // セッションにuseridが設定されているか確認
     // if (!isset($_SESSION["userid"])) {
     //     // useridが設定されていない場合、ログインページにリダイレクトするか、エラーメッセージを表示する
     //     echo "ユーザーがログインしていません。ログインしてください。";
@@ -61,7 +61,7 @@ sql;
         $sql=<<<sql
         SELECT *
         FROM material
-        WHERE userid = ? 
+        WHERE userid = ?
         AND (triptitle LIKE ? OR place LIKE ? OR spot1 LIKE ? OR comment1 LIKE ? OR remarks LIKE ?);
 
 sql;
@@ -95,6 +95,7 @@ sql;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="show.css">
+    <link rel="stylesheet" href="reset.css">
     <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>データ一覧</title>
 </head>
@@ -121,7 +122,7 @@ sql;
                     <th>備考</th>
                 </tr>
             </thead>
-                
+
             <?php foreach ($result as $row){ ?>
                 <?php if ($row["flag"] == 0){ ?>
                     <tbody>
@@ -159,13 +160,13 @@ sql;
                 <?php } ?>
             <?php }?>
 
-            
+
         </table>
     </div>
     <div class="toTopbutton">
         <a href="selectmenu.html">TOPに戻る</a>
     </div>
-  
+
 </body>
 </html>
 

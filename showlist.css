@@ -1,3 +1,17 @@
+    .eventbutton{
+      cursor: pointer;
+    }
+    .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+    }
+
+    dl {
+      display: none;
+    }
 
     h1,h2{
     text-align: center;
@@ -5,7 +19,6 @@
     .contr{
     max-width: 550px;
     margin:0 auto;
-    text-align:center;
     -webkit-border-radius:6px;
     -moz-border-radius:6px;
     border-radius:6px;
@@ -22,6 +35,10 @@
     padding: 20px 10px;
     }
 
+    form{
+      text-align: center;
+    }
+
     .search_container{
     box-sizing: border-box;
     }
@@ -35,7 +52,7 @@
     .search_container input[type="text"]:focus {
     outline: 0;
     }
-    
+
     .search_container button[type="submit"]{
     cursor: pointer;
     font-family: FontAwesome;
@@ -56,6 +73,14 @@
     padding: 5px;
     font-weight: 600;
     font-size: 18px;
+    text-align: right;
+
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .eventbutton > span {
+      display: inline-block;
     }
 
     .resultshow{
@@ -65,38 +90,38 @@
     .subtitle{
     font-weight: 600;
     color: #99933d;
-    
+
     }
 
     /* .contents{
         text-align: light;
     } */
 
-    .toTopbutton a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 1em 2em;
-    width: 300px;
-    color: #2285b1;
-    font-size: 18px;
-    font-weight: 700;
-    border: 2px solid #2285b1;
-    text-decoration: none;
+    .toTopbutton{
+      margin: 15px auto 25px;
+      text-align: center;
+      background-color:#ccc452;
+      padding: 12px 45px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc452;
+      -webkit-transition: .5s;
+      transition: .5s;
+      cursor: pointer;
+      width:30%;
       }
-      
-      .toTopbutton a::after {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-top: 3px solid #2285b1;
-    border-right: 3px solid #2285b1;
-    transform: rotate(45deg);
+
+      .toTopbutton:hover {
+      background:#99933d;
       }
-      
-      .toTopbutton a:hover {
-    color: #333333;
-    text-decoration: none;
-    background-color: #a0c4d3;
+
+      a{
+        text-decoration: none;
+        color:#333114;
+        transition: .3s;
+      }
+
+      .toTopbutton:hover a {
+        color: #fff;
       }

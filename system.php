@@ -15,8 +15,8 @@
       $remarks = $_POST["remarks"];
       $userid = $_SESSION["userid"];
     }
-  
-    
+
+
     // スポットとコメントの数を取得
     $spot1 = isset($spots[0]) ? $spots[0] : "";
     $comment1 = isset($comments[0]) ? $comments[0] : "";
@@ -28,21 +28,21 @@
     $comment4 = isset($comments[3]) ? $comments[3] : "";
     $spot5 = isset($spots[4]) ? $spots[4] : "";
     $comment5 = isset($comments[4]) ? $comments[4] : "";
-  
-      
 
-    
+
+
+
     //DBに接続します
     try{
     $dbh=new PDO($dsn,$user,$pass);
     //sql文の用意。ヒアドキュメント
     $sql=<<<sql
-    
+
     INSERT INTO material (triptitle, day, place, spot1, comment1, spot2, comment2, spot3, comment3, spot4, comment4, spot5, comment5, remarks, userid)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 sql;
 //前に空白あけない
-      
+
     // SQLの準備と実行
     $stmt = $dbh->prepare($sql);  // SQLの値を保留
     $stmt->bindParam(1, $triptitle);   // プレイスホルダーに値を紐づける
@@ -61,12 +61,12 @@ sql;
     $stmt->bindParam(14, $remarks);
     $stmt->bindParam(15, $userid);
     $stmt->execute(); // 保留していたSQLを実行
-      
+
     }catch(PDOException $e){
       echo "接続失敗・・・";
       echo "エラー内容：".$e->getMessage();
     }
-    
+
 
     $html = <<<EOD
     <!DOCTYPE html>
@@ -75,7 +75,8 @@ sql;
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>確認画面</title>
-      <link rel="stylesheet" href="check.css"> 
+      <link rel="stylesheet" href="check.css">
+      <link rel="stylesheet" href="reset.css">
   </head>
     <section class="contr">
       <h2>登録が完了しました</h2>

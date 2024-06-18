@@ -46,18 +46,26 @@
     margin-bottom:10px;
     }
 
+    .labeltitle{
+      font-weight: 600;
+    }
+
     ::-webkit-input-placeholder {
         color: #333114;
      }
      :-moz-placeholder {
-        color: #333114;  
+        color: #d3d3d3;
      }
      ::-moz-placeholder {
-        color: #333114; 
+        color: #d3d3d3;
      }
-     :-ms-input-placeholder {  
-        color: #333114;  
+     :-ms-input-placeholder {
+        color: #d3d3d3;
      }
+
+    .eventbutton:hover {
+      cursor: pointer;
+    }
 
     button {
     margin-top:15px;
@@ -80,4 +88,4 @@
     background:#99933d;
     }
 
-    
+

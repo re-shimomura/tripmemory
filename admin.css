@@ -18,14 +18,14 @@
         margin-bottom: 12px;
         /* transform: scale(0.75); */
         transform-origin: top left; /* 追加 */
-        width: 550px;        
+        width: 550px;
     }
 
     .table_scroll {
         overflow-x: scroll;
         margin-bottom: 12px;
     }
-    
+
    .table tr:nth-child(2n+1) {
     background: #e9faf9;
    }
@@ -78,7 +78,7 @@
     input:edit, input:delete {
     background:#808080;
     border: 1px solid #808080;
-    
+
     }
 
     button {

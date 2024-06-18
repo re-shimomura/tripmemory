@@ -29,14 +29,14 @@
     margin-bottom: 12px;
     /* transform: scale(0.75); */
     transform-origin: top left;
-    width: 2000px;        
+    width: 2000px;
     }
 
     .table_scroll {
     overflow-x: scroll;
     margin-bottom: 12px;
     }
-    
+
    .table tr:nth-child(2n+1) {
     background: #e9faf9;
     }
@@ -91,36 +91,32 @@
     border: 1px solid #808080;
     }
 
-    .toTopbutton a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 1em 2em;
-    width: 300px;
-    color: #2285b1;
-    font-size: 18px;
-    font-weight: 700;
-    border: 2px solid #2285b1;
-    text-decoration: none;
+
+    .toTopbutton{
+    margin: 15px auto 25px;
+    text-align: center;
+    background-color:#ccc452;
+    padding: 12px 45px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc452;
+    -webkit-transition: .5s;
+    transition: .5s;
+    cursor: pointer;
+    width:30%;
     }
 
-    .toTopbutton a::after {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-top: 3px solid #2285b1;
-    border-right: 3px solid #2285b1;
-    transform: rotate(45deg);
-    }
-      
-    .toTopbutton a:hover {
-    color: #333333;
-    text-decoration: none;
-    background-color: #a0c4d3;
+    .toTopbutton:hover {
+    background:#99933d;
     }
 
-    html {
-    scroll-behavior: smooth;
+    a{
+        text-decoration: none;
+        color:#333114;
+        transition: .3s;
     }
-      
+
+    .toTopbutton:hover a {
+        color: #fff;
+    }

@@ -38,7 +38,7 @@ sql;
         //PDO::FETCH_ASSOCパラメータは、結果を連想配列として取得するように指定している
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        
+
         //ユーザを無効にするための処理
         if (isset($_GET["mode"]) && $_GET["mode"] == "delete")
         {
@@ -62,7 +62,7 @@ sql;
         $sql=<<<sql
         SELECT *
         FROM material
-        WHERE userid = ? 
+        WHERE userid = ?
         AND (triptitle LIKE ? OR place LIKE ? OR spot1 LIKE ? OR comment1 LIKE ?OR spot2 LIKE ? OR comment2 LIKE ?OR spot3 LIKE ? OR comment3 LIKE ?OR spot4 LIKE ? OR comment4 LIKE ?OR spot5 LIKE ? OR comment5 LIKE ? OR remarks LIKE ?);
 
 sql;
@@ -108,25 +108,8 @@ sql;
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link rel="stylesheet" href="showlist.css">
+        <link rel="stylesheet" href="reset.css">
         <title>検索結果表示</title>
-
-        <style>
-            .eventbutton{
-                cursor: pointer;
-            }
-            .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
-            }
-
-
-            dl {
-                display: none;
-            }
-        </style>
     </head>
     <body>
         <h2 class="head">検索画面</h2>
@@ -137,61 +120,64 @@ sql;
         <?php foreach ($result as $row): ?>
             <?php if ($row["flag"] == 0){ ?>
                 <div class="resultshow">
-                    <p class="eventbutton" title="<?php echo $row['triptitle']; ?> <?php echo $row['place']; ?>"><?php echo $row['triptitle']; ?> ・ <?php echo $row['place']; ?><span class="material-symbols-outlined">expand_circle_down</span></p> 
+                    <p class="eventbutton" title="<?php echo $row['triptitle']; ?> <?php echo $row['place']; ?>">
+                        <span><?php echo $row['triptitle']; ?>（<?php echo $row['place'] == '' ? '設定なし' : $row['place']; ?>）</span>
+                        <span class="material-symbols-outlined">expand_circle_down</span>
+                    </p>
 
                     <dl>
                         <?php if (!empty($row['spot1'])): ?>
-                            <dt class="subtitle">スポット1</dt>
+                            <dt class="subtitle">◼️スポット1</dt>
                             <dd class="contents"><?php echo $row['spot1']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['comment1'])): ?>
-                            <dt class="subtitle">コメント1</dt>
+                            <dt class="subtitle">◼️コメント1</dt>
                             <dd class="contents"><?php echo $row['comment1']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['spot2'])): ?>
-                            <dt class="subtitle">スポット2</dt>
+                            <dt class="subtitle">◼️スポット2</dt>
                             <dd class="contents"><?php echo $row['spot2']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['comment2'])): ?>
-                            <dt class="subtitle">コメント2</dt>
+                            <dt class="subtitle">◼️コメント2</dt>
                             <dd class="contents"><?php echo $row['comment2']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['spot3'])): ?>
-                            <dt class="subtitle">スポット3</dt>
+                            <dt class="subtitle">◼️スポット3</dt>
                             <dd class="contents"><?php echo $row['spot3']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['comment3'])): ?>
-                            <dt class="subtitle">コメント3</dt>
+                            <dt class="subtitle">◼️コメント3</dt>
                             <dd class="contents"><?php echo $row['comment3']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['spot4'])): ?>
-                            <dt class="subtitle">スポット4</dt>
+                            <dt class="subtitle">◼️スポット4</dt>
                             <dd class="contents"><?php echo $row['spot4']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['comment4'])): ?>
-                            <dt class="subtitle">コメント4</dt>
+                            <dt class="subtitle">◼️コメント4</dt>
                             <dd class="contents"><?php echo $row['comment4']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['spot5'])): ?>
-                            <dt class="subtitle">スポット5</dt>
+                            <dt class="subtitle">◼️スポット5</dt>
                             <dd class="contents"><?php echo $row['spot5']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['comment5'])): ?>
-                            <dt class="subtitle">コメント5</dt>
+                            <dt class="subtitle">◼️コメント5</dt>
                             <dd class="contents"><?php echo $row['comment5']; ?></dd>
                         <?php endif; ?>
 
                         <?php if (!empty($row['remarks'])): ?>
-                            <dt class="subtitle">備考</dt>
+                            <dt class="subtitle">◼️備考</dt>
                             <dd class="contents"><?php echo $row['remarks']; ?></dd>
                         <?php endif; ?>
                     </dl>
@@ -213,13 +199,17 @@ sql;
                     dl.style.display = 'block';
                     var valueTitle = this.title;
                     //ボタンのデザインの変更をここにかく
-                    this.innerHTML = valueTitle+' '+'<span class="material-symbols-outlined">expand_circle_up</span>';
-
+                    // this.innerHTML = valueTitle+' '+'<span class="material-symbols-outlined">expand_circle_up</span>';
+                    var newInnerText = this.innerHTML.replace('<span class="material-symbols-outlined">expand_circle_down</span>','<span class="material-symbols-outlined">expand_circle_up</span>');
+                    this.innerHTML = newInnerText;
                 } else {
                     dl.style.display = 'none';
                     var valueTitle = this.title;
                     //ボタンのデザインの変更をここにかく
-                    this.innerHTML = valueTitle+' '+'<span class="material-symbols-outlined">expand_circle_down</span>';
+                    // this.innerHTML = valueTitle+' '+'<span class="material-symbols-outlined">expand_circle_down</span>';
+
+                    var newInnerText = this.innerHTML.replace('<span class="material-symbols-outlined">expand_circle_up</span>','<span class="material-symbols-outlined">expand_circle_down</span>');
+                    this.innerHTML = newInnerText;
                 }
             });
         });

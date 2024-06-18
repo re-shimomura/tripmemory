@@ -2,7 +2,7 @@
   session_start();
   // フォームから送信されたデータを受け取る処理
   if(isset($_POST["triptitle"])) {
-    $triptitle = $_POST["triptitle"];   
+    $triptitle = $_POST["triptitle"];
     $day = $_POST["day"];
     $place = $_POST["place"];
     $remarks = $_POST["remarks"];
@@ -36,7 +36,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>確認画面</title>
-      <link rel="stylesheet" href="check.css"> 
+      <link rel="stylesheet" href="check.css">
+      <link rel="stylesheet" href="reset.css">
   </head>
   <body>
   <section class="contr">
@@ -44,7 +45,7 @@
 
       <p class="inputindex">旅のタイトル</p>
       <p class="input">{$_SESSION["triptitle"]}</p>
-      
+
       <p class="inputindex">日付</p>
       <p class="input">{$_SESSION["day"]}</p>
 
@@ -56,7 +57,7 @@
 
       <p class="inputindex">コメント</p>
       <p class="input">{$_SESSION["comment"][0]}</p>
-  </section>    
+  </section>
 HTML;
 
   // スポットとコメントの数だけループして表示
@@ -66,7 +67,7 @@ HTML;
    <section class="contr">
         <p class="inputindex">スポット{$spotNum}</p><br>
         <p class="input">{$_SESSION["spot"][$i]}</p>
-        
+
         <p class="inputindex">コメント{$spotNum}</p><br>
         <p class="input">{$_SESSION["comment"][$i]}</p>
   </section>
@@ -86,7 +87,7 @@ HTML;
           <input type="hidden" name="day" value="{$_SESSION["day"]}">
           <input type="hidden" name="place" value="{$_SESSION["place"]}">
           <input type="hidden" name="remarks" value="{$_SESSION["remarks"]}">
-    </section>
+
 HTML;
 
   // スポットとコメントの数だけhiddenを追加
@@ -98,16 +99,14 @@ HTML;
   }
 
   $content .= <<< HTML
-    <section class="contr">
         </form>
+          <div class="editbutton">
+            <a href="input.html">入力を修正する</a>
+          </div>
+      </section>
 
-        <div class="editbutton">
-          <a href="input.html">入力を修正する</a>
-        </div>
-      
   </body>
   </html>
-    </section>
 HTML;
 
   echo $content;

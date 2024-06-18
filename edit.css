@@ -1,5 +1,5 @@
 
-h1,h2{
+   h1,h2{
     text-align: center;
     }
     .contr{
@@ -50,13 +50,13 @@ h1,h2{
         color: #333114;
      }
      :-moz-placeholder {
-        color: #333114;  
+        color: #333114;
      }
      ::-moz-placeholder {
-        color: #333114; 
+        color: #333114;
      }
-     :-ms-input-placeholder {  
-        color: #333114;  
+     :-ms-input-placeholder {
+        color: #333114;
      }
 
     button {
@@ -80,4 +80,4 @@ h1,h2{
     background:#99933d;
     }
 
-    
+

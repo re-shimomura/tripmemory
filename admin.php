@@ -34,7 +34,7 @@ sql;
     // 結果を連想配列として取得
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
- 
+
 } catch (PDOException $e) {
     // エラー処理
     echo "接続失敗: " . $e->getMessage();
@@ -50,6 +50,7 @@ $dbh = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="reset.css">
     <title>データ一覧</title>
 </head>
 <body>
@@ -57,9 +58,10 @@ $dbh = null;
         <h2>ユーザ一覧</h2>
         <table class="table">
             <tr>
-                <th>userid</th>
-                <th>password</th>
-                <th>permisson</th>
+                <th>ユーザーID</th>
+                <th>パスワード</th>
+                <th>権限</th>
+                <th>利用可否</th>
 
             </tr>
             <?php foreach ($result as $row){?>
@@ -67,8 +69,8 @@ $dbh = null;
                 <td><?php echo $row['userid']; ?></td>
                 <td><?php echo $row['password']; ?></td>
                 <td><?php echo $row['permission']; ?></td>
-                <td><?php echo $row['flag']; ?></td>
-                <td>        
+                <td><?php echo $row['flag'] == 0 ? '有効' : '無効'; ?></td>
+                <td>
                     <form action="admin.php" method="get">
                         <input type="submit" value="無効"></input>
                         <input type="hidden" name="mode" value="delete">
