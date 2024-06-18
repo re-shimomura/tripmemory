@@ -1,0 +1,99 @@
+
+    h1,h2{
+    text-align: center;
+    }
+    .contr{
+    max-width: 550px;
+    margin:0 auto;
+    text-align:center;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    background-color:#FAFAFA;
+    }
+
+    .head {
+    -webkit-border-radius:6px 6px 0px 0px;
+    -moz-border-radius:6px 6px 0px 0px;
+    border-radius:6px 6px 0px 0px;
+    background-color:#fff566;
+    color:#333114;
+    margin-top: 10px;
+    padding: 20px 10px;
+    }
+
+    .search_container{
+        box-sizing: border-box;
+      }
+    .search_container input[type="text"]{
+    background: #dcdcdc;
+    border: #333114;
+    height: 35px;
+    }
+    .search_container input[type="text"]:focus {
+    outline: 0;
+    }
+    .search_container button[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    border: none;
+    background: #2285b1;
+    color: #333114;
+    outline : none;
+    width: 3.0em;
+    height: 37px;
+    }
+
+    .search_container button[type="submit"]:hover {
+    background:#ccc452;
+    }
+
+    .eventbutton{
+    background: #fff899;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    }
+
+    .resultshow{
+    background: #f5fffa;
+    }
+
+    .subtitle{
+    font-weight: 600;
+    color: #99933d;
+    
+    }
+
+    .cntents{
+        text-align: center;
+    }
+
+    .toTopbutton a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 1em 2em;
+        width: 300px;
+        color: #2285b1;
+        font-size: 18px;
+        font-weight: 700;
+        border: 2px solid #2285b1;
+        text-decoration: none;
+      }
+      
+      .toTopbutton a::after {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-top: 3px solid #2285b1;
+        border-right: 3px solid #2285b1;
+        transform: rotate(45deg);
+      }
+      
+      .toTopbutton a:hover {
+        color: #333333;
+        text-decoration: none;
+        background-color: #a0c4d3;
+      }

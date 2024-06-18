@@ -1,8 +1,5 @@
 <?php
 
-echo "admin画面";
-
-
 // データベース接続情報
 $dsn = "mysql:host=localhost;dbname=tripmemory;charset=utf8";
 $user = "testuser";
@@ -52,36 +49,39 @@ $dbh = null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
     <title>データ一覧</title>
 </head>
 <body>
-    <h2>ユーザ一覧</h2>
-    <table border="1">
-        <tr>
-            <th>userid</th>
-            <th>password</th>
-            <th>permisson</th>
+    <section class="contr">
+        <h2>ユーザ一覧</h2>
+        <table class="table">
+            <tr>
+                <th>userid</th>
+                <th>password</th>
+                <th>permisson</th>
 
-        </tr>
-        <?php foreach ($result as $row){?>
-        <tr>
-            <td><?php echo $row['userid']; ?></td>
-            <td><?php echo $row['password']; ?></td>
-            <td><?php echo $row['permission']; ?></td>
-            <td><?php echo $row['flag']; ?></td>
-            <td>        
-                <form action="admin.php" method="get">
-                    <input type="submit" value="無効"></input>
-                    <input type="hidden" name="mode" value="delete">
-                    <input type="hidden" name="userid" value=<?php echo $row['userid']; ?>>
-                </form>
-            </td>
-        </tr>
-        <?php } ?>
-    </table>
+            </tr>
+            <?php foreach ($result as $row){?>
+            <tr>
+                <td><?php echo $row['userid']; ?></td>
+                <td><?php echo $row['password']; ?></td>
+                <td><?php echo $row['permission']; ?></td>
+                <td><?php echo $row['flag']; ?></td>
+                <td>        
+                    <form action="admin.php" method="get">
+                        <input type="submit" value="無効"></input>
+                        <input type="hidden" name="mode" value="delete">
+                        <input type="hidden" name="userid" value=<?php echo $row['userid']; ?>>
+                    </form>
+                </td>
+            </tr>
+            <?php } ?>
+        </table>
 
-    <form method="post" action="logout.php">
-        <button type="submit">ログアウト</button>
-    </form>
+        <form method="post" action="logout.php">
+            <button type="submit">ログアウト</button>
+        </form>
+    </section>
 </body>
 </html>

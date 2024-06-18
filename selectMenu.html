@@ -6,101 +6,71 @@
     <title>選択画面</title>
 
     <style>
-        
-
-    *,
-    *:before,
-    *:after {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-    }
-
-    html {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 62.5%;
-    }
-
-    /* 背景用*/
-    body {
-    padding: 30px;
-    background: #eae83a;
-    }
-
-    .btn,
-    a.btn,
-    button.btn {
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1.5;
-    position: relative;
-    display: inline-block;
-    padding: 1rem 4rem;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
+    h1,h2{
     text-align: center;
-    vertical-align: middle;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    color: #212529;
-    border-radius: 0.5rem;
+    }
+    .contr{
+    max-width: 550px;
+    margin:0 auto;
+    text-align:center;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    background-color:#FAFAFA;
     }
 
-    a.btn-border-shadow {
-    padding: calc(1.5rem - 12px) 3rem 1.5rem;
-
-    background: #fff;
+    a {
+        text-decoration:none;
+        font-weight: 600;
+        color: #333114;
+        
+    }
+    .button {
+    margin-top:15px;
+    margin-bottom:25px;
+    background-color:#fff566;;
+    padding: 12px 45px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: .5s;
+    transition: .5s;
+    display: inline-block;
+    cursor: pointer;
+    width: 170px;;
+    color:#fff;
+    text-align: center;
     }
 
-    a.btn-border-shadow:before {
-    position: absolute;
-    top: -6px;
-    left: -6px;
-
-    width: 100%;
-    height: 100%;
-
-    content: "";
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-
-    border: 3px solid #000;
-    border-radius: 0.5rem;
+    .button:hover, .button:hover {
+    background:#99933d;
     }
 
-    a.btn-border-shadow:hover {
-    padding: calc(1.5rem - 6px) 3rem;
+    #select{
+        text-align: center; 
     }
 
-    a.btn-border-shadow:hover:before {
-    top: 0;
-    left: 0;
+    .button{
+        cursor: pointer;
     }
-
-
     </style>
 </head>
 <body>
     <h1>なにをする？</h1>
-    
-    <div class="btn-wrap">
-    <a href="input.html" class="btn btn-border-shadow">旅の記録を追加</a>
-    </div>
+    <div id = "select">
+        <div class="button">
+        <a href="input.html" class="btn btn-border-shadow">旅の記録を追加</a>
+        </div>
 
-    
-    <div class="btn-wrap">
-    <a href="showlist.php" class="btn btn-border-shadow">旅の記録を見る</a>
-    </div>
+        
+        <div class="button">
+        <a href="showlist.php" class="btn btn-border-shadow">旅の記録を見る</a>
+        </div>
 
-    <div class="btn-wrap">
-    <a href="show.php" class="btn btn-border-shadow">旅の記録を編集・削除</a>
+        <div class="button">
+        <a href="show.php" class="btn btn-border-shadow">旅の記録を編集・削除</a>
+        </div>
     </div>
-
 
 </body>
 </html>

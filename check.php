@@ -100,7 +100,10 @@ HTML;
   $content .= <<< HTML
     <section class="contr">
         </form>
-        <p><a href="input.html">入力を修正する</a></p>
+
+        <div class="editbutton">
+          <a href="input.html">入力を修正する</a>
+        </div>
       
   </body>
   </html>

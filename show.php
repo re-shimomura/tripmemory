@@ -94,70 +94,78 @@ sql;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="show.css">
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>データ一覧</title>
 </head>
 <body>
     <h2>登録データ一覧</h2>
- 
-    <table border="1">
-        <tr>
-            <th>旅のタイトル</th>
-            <th>日付</th>
-            <th>目的地</th>
-            <th>スポット1</th>
-            <th>コメント1</th>
-            <th>スポット2</th>
-            <th>コメント2</th>
-            <th>スポット3</th>
-            <th>コメント3</th>
-            <th>スポット4</th>
-            <th>コメント4</th>
-            <th>スポット5</th>
-            <th>コメント5</th>
-            <th>備考</th>
-            
-        </tr>
-        <?php foreach ($result as $row){ ?>
-            <?php if ($row["flag"] == 0){ ?>
+    <div class="table_scroll">
+        <table  class="table">
+        <!-- <table>             -->
+            <thead>
                 <tr>
-                    <td><?php echo $row['triptitle']; ?></td>
-                    <td><?php echo $row['day']; ?></td>
-                    <td><?php echo $row['place']; ?></td>
-                    <td><?php echo $row['spot1']; ?></td>
-                    <td><?php echo $row['comment1']; ?></td>
-                    <td><?php echo $row['spot2']; ?></td>
-                    <td><?php echo $row['comment2']; ?></td>
-                    <td><?php echo $row['spot3']; ?></td>
-                    <td><?php echo $row['comment3']; ?></td>
-                    <td><?php echo $row['spot4']; ?></td>
-                    <td><?php echo $row['comment4']; ?></td>
-                    <td><?php echo $row['spot5']; ?></td>
-                    <td><?php echo $row['comment5']; ?></td>
-                    <td><?php echo $row['remarks']; ?></td>
-                    <td>
-                    <form action="edit.php" method="get">
-                            <input type="submit" value="編集"></input>
-                            <input type="hidden" name="mode" value="edit">
-                            <input type="hidden" name="id" value=<?php echo $row['id']; ?>>
-                        </form>
-                    </td>
-                    <td>
-                    <form action="show.php" method="get">
-                            <input type="submit" value="削除"></input>
-                            <input type="hidden" name="mode" value="delete">
-                            <input type="hidden" name="id" value=<?php echo $row['id']; ?>>
-                        </form>
-                    </td>
+                    <th>旅のタイトル</th>
+                    <th>日付</th>
+                    <th>目的地</th>
+                    <th>スポット1</th>
+                    <th>コメント1</th>
+                    <th>スポット2</th>
+                    <th>コメント2</th>
+                    <th>スポット3</th>
+                    <th>コメント3</th>
+                    <th>スポット4</th>
+                    <th>コメント4</th>
+                    <th>スポット5</th>
+                    <th>コメント5</th>
+                    <th>備考</th>
                 </tr>
-            <?php } ?>
-        <?php }?>
+            </thead>
+                
+            <?php foreach ($result as $row){ ?>
+                <?php if ($row["flag"] == 0){ ?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $row['triptitle']; ?></td>
+                            <td><?php echo $row['day']; ?></td>
+                            <td><?php echo $row['place']; ?></td>
+                            <td><?php echo $row['spot1']; ?></td>
+                            <td><?php echo $row['comment1']; ?></td>
+                            <td><?php echo $row['spot2']; ?></td>
+                            <td><?php echo $row['comment2']; ?></td>
+                            <td><?php echo $row['spot3']; ?></td>
+                            <td><?php echo $row['comment3']; ?></td>
+                            <td><?php echo $row['spot4']; ?></td>
+                            <td><?php echo $row['comment4']; ?></td>
+                            <td><?php echo $row['spot5']; ?></td>
+                            <td><?php echo $row['comment5']; ?></td>
+                            <td><?php echo $row['remarks']; ?></td>
+                            <td>
+                                <form action="edit.php" method="get">
+                                        <input class="edit" type="submit" value="編集"></input>
+                                        <input type="hidden" name="mode" value="edit">
+                                        <input type="hidden" name="id" value=<?php echo $row['id']; ?>>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="show.php" method="get">
+                                    <input class="delete"  type="submit" value="削除"></input>
+                                    <input type="hidden" name="mode" value="delete">
+                                    <input type="hidden" name="id" value=<?php echo $row['id']; ?>>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php } ?>
+            <?php }?>
 
-        
-    </table>
-    <p><a href="selectMenu.html">TOPに戻る</a></p>
-
-
-
+            
+        </table>
+    </div>
+    <div class="toTopbutton">
+        <a href="selectmenu.html">TOPに戻る</a>
+    </div>
+  
 </body>
 </html>
 

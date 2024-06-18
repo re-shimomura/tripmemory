@@ -20,6 +20,8 @@
     }
 
     .inputindex {
+    font-weight: 600;
+    color:#333114;
     margin-bottom: 5px;
     }
 
@@ -66,3 +68,25 @@
     button:hover, .button:hover {
         background:#99933d;
         }
+
+/* 既存のCSSと合わせて新しいスタイルを追加します */
+.editbutton {
+    text-align: center; /* ボタンを中央揃えに */
+    margin-top: 20px;   /* ボタンの上に余白を追加 */
+}
+
+.editbutton a {
+    display: inline-block;
+    padding: 10px 20px;               /* ボタンの内側の余白を調整 */
+    color: #fff;                      /* テキストの色を白に */
+    background-color: #007bff;        /* ボタンの背景色を青に */
+    border: none;                     /* ボーダーをなしに */
+    border-radius: 5px;               /* ボタンの角を丸く */
+    text-decoration: none;            /* 下線を削除 */
+    font-size: 16px;                  /* フォントサイズを調整 */
+    transition: background-color 0.3s, transform 0.3s; /* ホバー効果のためのトランジション */
+}
+
+.editbutton a:hover {
+    background-color: #0056b3;   
+     }     /* ホバー時

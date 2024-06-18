@@ -4,13 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅の思い出記録にログイン</title>
+
+    <style>
+    h1,h2{
+    text-align: center;
+    }
+    .contr{
+    max-width: 550px;
+    margin:0 auto;
+    padding: 0px 0px 30px 0px;
+    text-align:center;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    background-color:#FAFAFA;
+    
+    }
+
+    </style>
 </head>
 <body>
+    <section class="contr">
     <h1>ログイン画面</h1>
-    <form action="login.php" method="post">
-        <input type="text" name="userid" value="">
-        <input type="password" name="password" value="">
-        <input type="submit" value="ログインする">
-    </form>
+        <form action="login.php" method="post">
+            <input type="text" name="userid" value="">
+            <input type="password" name="password" value="">
+            <input type="submit" value="ログインする">
+        </form>
+    </section>
 </body>
 </html>

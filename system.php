@@ -79,9 +79,9 @@ sql;
   </head>
     <section class="contr">
       <h2>登録が完了しました</h2>
-      <button onclick="location.href='input.html'">さらに追加</button>
-      <button onclick="location.href='show.php'">過去のデータを見る</button>
-      <button onclick="location.href='selectMenu.html'">TOPに戻る</button>
+      <button class="button" onclick="location.href='input.html'">さらに追加</button>
+      <button class="button" onclick="location.href='show.php'">編集・削除</button>
+      <button class="button" onclick="location.href='selectMenu.html'">TOPに戻る</button>
       </body>
       </html>
     </section>

@@ -70,32 +70,35 @@ sql;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit.css">
     <title>編集</title>
 </head>
 <body>
-    <h2>データ編集</h2>
-    <?php if (isset($data)) { ?>
-    <form method="POST" action="edit.php">
-        <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
-        <label for="triptitle">旅のタイトル:</label>
-        <input type="text" name="triptitle" id="triptitle" value="<?php echo $data['triptitle']; ?>"><br>
+    <section class="contr">
+    <h2 class="head">データ編集</h2>
+        <?php if (isset($data)) { ?>
+        <form method="POST" action="edit.php">
+            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+            <label for="triptitle">旅のタイトル</label><br>
+            <input type="text" name="triptitle" id="triptitle" value="<?php echo $data['triptitle']; ?>"><br>
 
-        <label for="day">日付:</label>
-        <input type="date" name="day" id="day" value="<?php echo $data['day']; ?>"><br>
+            <label for="day">日付</label><br>
+            <input type="date" name="day" id="day" value="<?php echo $data['day']; ?>"><br>
 
-        <label for="place">目的地:</label>
-        <input type="text" name="place" id="place" value="<?php echo $data['place']; ?>"><br>
+            <label for="place">目的地</label><br>
+            <input type="text" name="place" id="place" value="<?php echo $data['place']; ?>"><br>
 
-        <label for="spot1">スポット:</label>
-        <input type="text" name="spot1" id="spot1" value="<?php echo $data['spot1']; ?>"><br>
+            <label for="spot1">スポット</label><br>
+            <input type="text" name="spot1" id="spot1" value="<?php echo $data['spot1']; ?>"><br>
 
-        <label for="comment1">コメント:</label>
-        <input type="text" name="comment1" id="comment1" value="<?php echo $data['comment1']; ?>"><br>
+            <label for="comment1">コメント</label><br>
+            <input type="text" name="comment1" id="comment1" value="<?php echo $data['comment1']; ?>"><br>
 
-        <label for="remarks">備考:</label>
-        <input type="text" name="remarks" id="remarks" value="<?php echo $data['remarks']; ?>"><br>
+            <label for="remarks">備考</label><br>
+            <input type="text" name="remarks" id="remarks" value="<?php echo $data['remarks']; ?>"><br>
 
-        <button type="submit" name="update">更新</button>
+            <button type="submit" name="update">更新</button>
+        </section>
     </form>
     <?php } else { ?>
     <p>データが見つかりません。</p>

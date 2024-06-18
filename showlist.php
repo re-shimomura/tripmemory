@@ -101,100 +101,108 @@ sql;
 
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>検索結果表示</title>
+        <section class="contr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="showlist.css">
+        <title>検索結果表示</title>
 
-    <style>
-        .eventbutton{
-            cursor: pointer;
-        }
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 24
-        }
+        <style>
+            .eventbutton{
+                cursor: pointer;
+            }
+            .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+            }
 
 
-        dl {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <form method="GET" action="showlist.php">
-        <label for="keyword">キーワード検索:</label>
-        <input type="text" name="keyword" id="keyword">
-        <button type="submit">検索</button>
-    </form>
-    <?php foreach ($result as $row): ?>
-    <div>
-        <h3>旅行タイトル</h3>
-        <p class="eventbutton"><?php echo $row['triptitle']; ?> <?php echo $row['place']; ?><span class="material-symbols-outlined">expand_circle_down</span></p> 
+            dl {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="head">検索画面</h2>
+        <form class="search_container" method="GET" action="showlist.php">
+            <input type="text" name="keyword" id="keyword" placeholder="キーワード検索">
+            <button type="submit">検索</button>
+        </form>
+        <?php foreach ($result as $row): ?>
+            <?php if ($row["flag"] == 0){ ?>
+                <div class="resultshow">
+                    <p class="eventbutton" title="<?php echo $row['triptitle']; ?> <?php echo $row['place']; ?>"><?php echo $row['triptitle']; ?> ・ <?php echo $row['place']; ?><span class="material-symbols-outlined">expand_circle_down</span></p> 
 
-        <dl>
-            <?php if (!empty($row['spot1'])): ?>
-                <dt>スポット1</dt>
-                <dd><?php echo $row['spot1']; ?></dd>
-            <?php endif; ?>
+                    <dl>
+                        <?php if (!empty($row['spot1'])): ?>
+                            <dt class="subtitle">スポット1</dt>
+                            <dd class="contents"><?php echo $row['spot1']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['comment1'])): ?>
-                <dt>コメント1</dt>
-                <dd><?php echo $row['comment1']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['comment1'])): ?>
+                            <dt class="subtitle">コメント1</dt>
+                            <dd class="contents"><?php echo $row['comment1']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['spot2'])): ?>
-                <dt>スポット2</dt>
-                <dd><?php echo $row['spot2']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['spot2'])): ?>
+                            <dt class="subtitle">スポット2</dt>
+                            <dd class="contents"><?php echo $row['spot2']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['comment2'])): ?>
-                <dt>コメント2</dt>
-                <dd><?php echo $row['comment2']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['comment2'])): ?>
+                            <dt class="subtitle">コメント2</dt>
+                            <dd class="contents"><?php echo $row['comment2']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['spot3'])): ?>
-                <dt>スポット3</dt>
-                <dd><?php echo $row['spot3']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['spot3'])): ?>
+                            <dt class="subtitle">スポット3</dt>
+                            <dd class="contents"><?php echo $row['spot3']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['comment3'])): ?>
-                <dt>コメント3</dt>
-                <dd><?php echo $row['comment3']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['comment3'])): ?>
+                            <dt class="subtitle">コメント3</dt>
+                            <dd class="contents"><?php echo $row['comment3']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['spot4'])): ?>
-                <dt>スポット4</dt>
-                <dd><?php echo $row['spot4']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['spot4'])): ?>
+                            <dt class="subtitle">スポット4</dt>
+                            <dd class="contents"><?php echo $row['spot4']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['comment4'])): ?>
-                <dt>コメント4</dt>
-                <dd><?php echo $row['comment4']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['comment4'])): ?>
+                            <dt class="subtitle">コメント4</dt>
+                            <dd class="contents"><?php echo $row['comment4']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['spot5'])): ?>
-                <dt>スポット5</dt>
-                <dd><?php echo $row['spot5']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['spot5'])): ?>
+                            <dt class="subtitle">スポット5</dt>
+                            <dd class="contents"><?php echo $row['spot5']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['comment5'])): ?>
-                <dt>コメント5</dt>
-                <dd><?php echo $row['comment5']; ?></dd>
-            <?php endif; ?>
+                        <?php if (!empty($row['comment5'])): ?>
+                            <dt class="subtitle">コメント5</dt>
+                            <dd class="contents"><?php echo $row['comment5']; ?></dd>
+                        <?php endif; ?>
 
-            <?php if (!empty($row['remarks'])): ?>
-                <dt>備考</dt>
-                <dd><?php echo $row['remarks']; ?></dd>
-            <?php endif; ?>
-        </dl>
-    </div>
-    <?php endforeach; ?>
+                        <?php if (!empty($row['remarks'])): ?>
+                            <dt class="subtitle">備考</dt>
+                            <dd class="contents"><?php echo $row['remarks']; ?></dd>
+                        <?php endif; ?>
+                    </dl>
+                </div>
+                <?php } ?>
+            <?php endforeach; ?>
+    </section>
+
+        <div class="toTopbutton">
+            <a href="selectmenu.html">TOPに戻る</a>
+        </div>
 
     <script>
         // JavaScriptでクリックイベントを追加
@@ -203,15 +211,19 @@ sql;
                 var dl = this.nextElementSibling;
                 if (dl.style.display === 'none' || dl.style.display === '') {
                     dl.style.display = 'block';
+                    var valueTitle = this.title;
+                    //ボタンのデザインの変更をここにかく
+                    this.innerHTML = valueTitle+' '+'<span class="material-symbols-outlined">expand_circle_up</span>';
+
                 } else {
                     dl.style.display = 'none';
+                    var valueTitle = this.title;
+                    //ボタンのデザインの変更をここにかく
+                    this.innerHTML = valueTitle+' '+'<span class="material-symbols-outlined">expand_circle_down</span>';
                 }
-                //ボタンのデザインの変更をここにかく
-                this.innerHTML = '<span class="material-symbols-outlined">expand_circle_up</span>';
             });
         });
     </script>
 </body>
 </html>
 
-<span class="material-symbols-outlined">expand_circle_up</span>

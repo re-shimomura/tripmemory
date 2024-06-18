@@ -1,0 +1,103 @@
+    h1,h2{
+    text-align: center;
+    }
+    .contr{
+    max-width: 550px;
+    margin:0 auto;
+    text-align:center;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    background-color:#FAFAFA;
+    }
+
+    .table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout: fixed;
+        margin-bottom: 12px;
+        /* transform: scale(0.75); */
+        transform-origin: top left; /* 追加 */
+        width: 550px;        
+    }
+
+    .table_scroll {
+        overflow-x: scroll;
+        margin-bottom: 12px;
+    }
+    
+   .table tr:nth-child(2n+1) {
+    background: #e9faf9;
+   }
+   .table th {
+    padding: 10px;
+    border: solid 1px #ffffff;
+    background: #fff899;
+    color: #333114;;
+   }
+   .table td {
+    padding: 10px;
+    border: solid 1px #ffffff;
+    background: #f5fffa;
+   }
+
+   .edit {
+    width: 80px;
+    margin-top:15px;
+    margin-bottom:25px;
+    background-color:#556b2f;
+    padding: 8px 8px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #556b2f;
+    -webkit-transition: .5s;
+    transition: .5s;
+    display: inline-block;
+    cursor: pointer;
+    color:#fff;
+    }
+
+    .delete{
+    width: 80px;
+    margin-top:15px;
+    margin-bottom:25px;
+    background-color:#b22222;
+    padding: 8px 8px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #b22222;
+    -webkit-transition: .5s;
+    transition: .5s;
+    display: inline-block;
+    cursor: pointer;
+    color:#fff;
+    }
+
+    input:edit, input:delete {
+    background:#808080;
+    border: 1px solid #808080;
+    
+    }
+
+    button {
+    margin-top:15px;
+    margin-bottom:25px;
+    background-color:#ccc452;
+    padding: 12px 45px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc452;
+    -webkit-transition: .5s;
+    transition: .5s;
+    display: inline-block;
+    cursor: pointer;
+    width:30%;
+    color:#fff;
+    }
+
+    button:hover, .button:hover {
+    background:#99933d;
+    }
