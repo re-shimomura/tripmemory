@@ -1,7 +1,7 @@
     h1,h2{
     text-align: center;
     }
-    
+
     .contr{
     max-width: 550px;
     margin:0 auto;
@@ -23,34 +23,34 @@
     }
 
     .table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        table-layout: fixed;
-        margin-bottom: 12px;
-        /* transform: scale(0.75); */
-        transform-origin: top left;
-        width: 2000px;        
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    margin-bottom: 12px;
+    /* transform: scale(0.75); */
+    transform-origin: top left;
+    width: 2000px;        
     }
 
     .table_scroll {
-        overflow-x: scroll;
-        margin-bottom: 12px;
+    overflow-x: scroll;
+    margin-bottom: 12px;
     }
     
    .table tr:nth-child(2n+1) {
     background: #e9faf9;
-   }
+    }
    .table th {
     padding: 10px;
     border: solid 1px #ffffff;
     background: #fff899;
     color: #333114;;
-   }
+    }
    .table td {
     padding: 10px;
     border: solid 1px #ffffff;
     background: #f5fffa;
-   }
+    }
 
    .edit {
     width: 80px;
@@ -92,35 +92,35 @@
     }
 
     .toTopbutton a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        padding: 1em 2em;
-        width: 300px;
-        color: #2285b1;
-        font-size: 18px;
-        font-weight: 700;
-        border: 2px solid #2285b1;
-        text-decoration: none;
-      }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 300px;
+    color: #2285b1;
+    font-size: 18px;
+    font-weight: 700;
+    border: 2px solid #2285b1;
+    text-decoration: none;
+    }
 
     .toTopbutton a::after {
-        content: '';
-        width: 5px;
-        height: 5px;
-        border-top: 3px solid #2285b1;
-        border-right: 3px solid #2285b1;
-        transform: rotate(45deg);
-      }
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #2285b1;
+    border-right: 3px solid #2285b1;
+    transform: rotate(45deg);
+    }
       
-      .toTopbutton a:hover {
-        color: #333333;
-        text-decoration: none;
-        background-color: #a0c4d3;
-      }
+    .toTopbutton a:hover {
+    color: #333333;
+    text-decoration: none;
+    background-color: #a0c4d3;
+    }
 
-      html {
-        scroll-behavior: smooth;
-      }
+    html {
+    scroll-behavior: smooth;
+    }
       
