@@ -62,10 +62,19 @@
     outline : none;
     width: 3.0em;
     height: 37px;
+    width: 80px;
     }
 
     .search_container button[type="submit"]:hover {
     background:#ccc452;
+    }
+
+    .search_container{
+      margin: 10px 0;
+    }
+
+    #keyword{
+      width: 400px;
     }
 
     .eventbutton{

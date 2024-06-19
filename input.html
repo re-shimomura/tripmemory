@@ -12,7 +12,6 @@
 <body>
   <section class="contr">
     <h2 class="head">情報入力画面</h2>
-
         <form action="check.php" method="post">
           <label class="labeltitle">旅のタイトル</label><br>
           <input id="" type="text" name="triptitle" placeholder="大阪USJ旅行"><br>
@@ -90,8 +89,11 @@
       </section>
 
         <script>
+        //追加されるフォームの数を管理するための変数countを,2で初期化
         var count = 2;
-         document.getElementById("add_form").addEventListener("click", function () {
+
+        //ボタンがクリックされたときに実行される関数を設定
+        document.getElementById("add_form").addEventListener("click", function () {
         // この条件を満たした場合、以下の処理を実行する
         if (count < 6) {
             // スポットの入力フォームを追加するセクションを入手
@@ -116,7 +118,6 @@
             spotPlace.appendChild(document.createElement('br'));
             spotPlace.appendChild(newInputSpot);
 
-
             // コメントラベルを追加
             const commentLabel = document.createElement('label');
             commentLabel.textContent = "コメント"+ count;
@@ -134,18 +135,13 @@
             // スポットとコメントの間に改行を追加
             spotPlace.appendChild(document.createElement('br'));
 
+            //ボタンを非表示
             if (count == 5) {
               document.getElementById("add_form").style.display = 'none';
             }
-
             count++;
-
-        } else {
-            alert("登録できるのは5つまでです");
-        }
+        } 
     });
-
-
         </script>
 
 </body>
